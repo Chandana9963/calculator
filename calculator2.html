@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Basic Calculator</title>
+<hr style="height:30px;border-width:0;color:gray;background-color:black">
+<h1><b><center>CALCULATOR</center></b></h1>
+<style>
+.body{
+display:flex;justify-content: center;align-items: center;height: 100vh;margin:0;background-image:url('C:\Users\LENOVO\OneDrive\Desktop\life.jpg');background-size: cover;background-repeat; no-repeat:background-position: center;font-family: Arial, sans-serif;
+     }
+
+.calculator{
+ border: 200px ; border-radius: 3px;overflow: hidden;width:500px;padding-left:400px;padding-bottom:-10px; box-shadow: 0 8px 6px -6px (0 0 0 0.5);
+           }
+.display{
+background-color: #222;color: #01F9C6;text-align: right;padding: 20px;font-size: 2em;border-bottom: 3px solid #E2F516;
+        }
+.buttons{
+display: grid;grid-template-columns: repeat(4, 1fr);
+        }        
+.button{
+padding: 20px; font-size: 1.5em; border: 1px solid #ccc; background-color: #fff;cursor: pointer;outline:none ;
+       }
+.button:hover{
+background-color: #8B0000;
+             }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+<div class="display" id="display">0</div>
+<div class="buttons">
+            
+
+<button class="button" onclick="appendToDisplay('(')" style="background-color: #ADF802;">(</button>
+<button class="button" onclick="appendToDisplay(')')" style="background-color: #6AFB92;">)</button>
+<button class="button" onclick="calculatePercentage()"style="background-color: #008000;">%</button>
+<button class="button" onclick="appendToDisplay('/')" style="background-color: #FDBD01;">/</button>
+          
+
+<button class="button" onclick="appendToDisplay('7')" style="background-color: #A17188;">7</button>
+            
+<button class="button" onclick="appendToDisplay('8')" style="background-color: #6CC417;">8</button>
+            
+<button class="button" onclick="appendToDisplay('9')" style="background-color: #8B8000;">9</button>
+            
+<button class="button" onclick="appendToDisplay('+')" style="background-color: #473810;">+</button>
+           
+ <button class="button" onclick="appendToDisplay('4')" style="background-color: #B86500;">4</button>
+            
+<button class="button" onclick="appendToDisplay('5')" style="background-color: #FF7722;">5</button>
+            
+<button class="button" onclick="appendToDisplay('6')" style="background-color: #872657;">6</button>
+           
+<button class="button" onclick="appendToDisplay('*')" style="background-color: #6F2DA8;">*</button>
+            
+<button class="button" onclick="appendToDisplay('1')" style="background-color: #E3319D;">1</button>
+            
+<button class="button" onclick="appendToDisplay('2')" style="background-color: #FF0000;">2</button>
+            
+<button class="button" onclick="appendToDisplay('3')" style="background-color: #9E4638;">3</button>
+
+<button class="button" onclick="appendToDisplay('-')" style="background-color: #16F529;">-</button>
+<button class="button" onclick="appendToDisplay('0')" style="background-color: #3D3C3A;">0</button>
+
+<button class="button" onclick="appendToDisplay('00')" style="background-color: #1E90FF;">00</button>  
+
+<button class="button" onclick="calculateResult()" style="background-color: #B0BF1A;">=</button>  
+<button class="button" onclick="clearDisplay('AC')" style="background-color: #22CE83;">AC</button>   
+</style>    
+</div>
+</div>
+</div>
+<script>
+function clearDisplay() {
+document.getElementById('display').innerText = '0';
+}
+
+function appendToDisplay(value) {
+const display = document.getElementById('display');
+if (display.innerText === '0') {
+display.innerText = value;
+} else {
+display.innerText += value;
+}
+}
+
+function calculateResult() {
+const display = document.getElementById('display');
+try {
+display.innerText = eval(display.innerText);
+} catch (e) {
+display.innerText = 'Error';
+}
+}
+function calculatePercentage() {
+const display = document.getElementById('display');
+try {
+display.innerText = eval(display.innerText) / 100;
+} catch (e) {
+display.innerText = 'Error';
+}
+}
+</script>
+</body>
+</div>
+</html>
